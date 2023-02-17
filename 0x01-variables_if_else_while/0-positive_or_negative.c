@@ -1,13 +1,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-
 /**
- * main - Entry point.
- * 
- * Description: Prints a random positive or negative number. 
+ * main - Program Entry point
  *
- * Return: Always 0.
+ * Description: A program to determine wether an int is +ve, -ve or 0
+ *
+ * Return: 0 always
  */
 
 int main(void)
@@ -16,13 +15,12 @@ int main(void)
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-
+	
 	if (n > 0)
 		printf("%d is positive\n", n);
 	else if (n < 0)
 		printf("%d is negative\n", n);
 	else
 		printf("%d is zero\n", n);
-
 	return (0);
 }
