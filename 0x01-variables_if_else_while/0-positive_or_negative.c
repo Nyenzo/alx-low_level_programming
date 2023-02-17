@@ -5,7 +5,7 @@
 /**
  * main - Entry point.
  * 
- * Prints a random positive or negative number. 
+ * Description: Prints a random positive or negative number. 
  *
  * Return: Always 0.
  */
