@@ -7,13 +7,13 @@
 */
 int main(void)
 {
-	int digit;
+	int num = 48; /*ASCII code for 0*/
 
-	for (digit = 0; digit < 10; digit++)
-	putchar(digit + '0');
-
+	while (num <= 57)
+	{
+		putchar(num);
+		num++;
+	}
 	putchar('\n');
-
 	return (0);
 }
-    
