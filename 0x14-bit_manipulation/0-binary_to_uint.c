@@ -1,5 +1,3 @@
-/* binary_to_uint.c */
-
 #include "main.h"
 #include <stdio.h>
 
