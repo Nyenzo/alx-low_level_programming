@@ -18,5 +18,15 @@ int main() {
         printf("Successfully read and printed %zd bytes from text file.\n", result);
     }
 
+     const char *filename = "example.txt";
+    char *text_content = "This is appended text.";
+
+    int result = append_text_to_file(filename, text_content);
+    if (result == -1) {
+        printf("Failed to append text to file.\n");
+    } else {
+        printf("Successfully appended text to file.\n");
+    }
+
     return 0;
 }
