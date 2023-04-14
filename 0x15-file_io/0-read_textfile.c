@@ -1,9 +1,9 @@
 /* File: file_operations.c
- * Author: [Your Name]
+ * Author: [Nyenzo]
  * Description: Implementation of file operations functions
  */
 
-#include "file_operations.h"
+#include "main.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
