@@ -5,6 +5,7 @@
 
 #include "main.h"
 #include <stdio.h>
+#include <fcntl.h>
 
 int main() {
     const char *filename = "example.txt";

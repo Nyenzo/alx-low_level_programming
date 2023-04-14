@@ -7,37 +7,41 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 /* Function to read and print a text file */
 ssize_t read_textfile(const char *filename, size_t letters) {
-    if (filename == NULL) {
-        printf("Error: filename is NULL\n");
-        return 0;
-    }
-
-    int fd = open(filename, O_RDONLY);
+    int fd = open(filename, O_RDONLY); /* Open file in read-only mode */
     if (fd == -1) {
         perror("Error opening file");
-        return 0;
+        return 0; /* Return 0 on error */
     }
 
-    char buf[letters];
-    ssize_t bytesRead = read(fd, buf, letters);
-    if (bytesRead == -1) {
-        perror("Error reading from file");
+    char *buffer = (char *)malloc(letters); /* Allocate memory for buffer */
+    if (buffer == NULL) {
+        perror("Error allocating memory");
         close(fd);
-        return 0;
+        return 0; /* Return 0 on error */
     }
 
-    ssize_t bytesWritten = write(STDOUT_FILENO, buf, bytesRead);
-    if (bytesWritten == -1) {
-        perror("Error writing to STDOUT");
+    ssize_t bytes_read = read(fd, buffer, letters); /* Read from file */
+    if (bytes_read == -1) {
+        perror("Error reading file");
         close(fd);
-        return 0;
+        free(buffer);
+        return 0; /* Return 0 on error */
+    }
+
+    ssize_t bytes_written = write(STDOUT_FILENO, buffer, bytes_read); /* Write to standard output */
+    if (bytes_written == -1 || bytes_written != bytes_read) {
+        perror("Error writing to standard output");
+        close(fd);
+        free(buffer);
+        return 0; /* Return 0 on error */
     }
 
     close(fd);
-    printf("\n");
-    return bytesWritten;
+    free(buffer);
+    return bytes_written; /* Return the actual number of bytes written */
 }
