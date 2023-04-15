@@ -1,7 +1,0 @@
-{
-    "C_Cpp.errorSquiggles": "enabled",
-    "files.associations": {
-        "5-print_numbers": "c",
-        "main.h": "c"
-    }
-}
