@@ -1,1 +1,1 @@
-Debugging codes in C
+Learning to debug codes in C
